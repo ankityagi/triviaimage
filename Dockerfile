@@ -8,9 +8,6 @@ RUN a2enmod rewrite
 
 # Copy everything into Apache document root
 COPY . /var/www/html/
-COPY ./frontend/index.html /var/www/html/index.html
-COPY ./frontend/scripts.js /var/www/html/scripts.js
-COPY ./frontend/styles.css /var/www/html/styles.css
 
 
 # Ensure permissions for database
