@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // SQLite connection Local
-$db = new PDO('sqlite:../database/triviaimage.db');
+// $db = new PDO('sqlite:../database/triviaimage.db');
 // SQLite connection Production
-// $db = new PDO('sqlite:/var/www/html/database/triviaimage.db');
+$db = new PDO('sqlite:/var/www/html/database/triviaimage.db');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Create tables if not exist

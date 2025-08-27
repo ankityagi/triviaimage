@@ -1,5 +1,3 @@
-console.log('script.js loaded');
-
 let username = '';
 let currentRound = 0;
 let score = 0;
@@ -71,10 +69,8 @@ nextBtn.onclick = () => {
         if (selected && q) {
             if (parseInt(selected.value) === q.answer) {
                 score++;
-                console.log(`User selected RIGHT answer: ${selected.value}`);
             } else {
                 wrongAnswers.push([q.opt1, q.opt2, q.opt3, q.opt4][selected.value-1]);
-                console.log(`User selected WRONG answer: ${selected.value}, correct was: ${q.answer}`);
             }
         }
         currentRound++;
