@@ -144,6 +144,7 @@ function renderLeaderboard() {
                     <td class="px-4 py-2 border-b border-blue-200 font-mono">${entry.name}</td>
                     <td class="px-4 py-2 border-b border-blue-200 font-mono">${entry.datetime}</td>
                     <td class="px-4 py-2 border-b border-blue-200 font-mono">${entry.score}</td>
+                    <td class="px-4 py-2 border-b border-blue-200 font-mono">${entry.total_time ? entry.total_time + 's' : ''}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -168,9 +169,13 @@ function showQuestion() {
     const options = [q.opt1, q.opt2, q.opt3, q.opt4];
     options.forEach((opt, idx) => {
         const label = document.createElement('label');
-        label.innerHTML = `<input type="radio" name="option" value="${idx+1}"> ${opt}`;
+        label.className = 'flex items-center mb-2 cursor-pointer w-full px-2 py-2 rounded-lg hover:bg-pink-100 transition';
+        label.htmlFor = `option${idx+1}`;
+        label.innerHTML = `
+            <input id="option${idx+1}" type="radio" name="option" value="${idx+1}" class="accent-pink-500 w-5 h-5 mr-3 cursor-pointer align-middle">
+            <span class="font-mono text-lg text-blue-900 select-none align-middle">${opt}</span>
+        `;
         optionsForm.appendChild(label);
-        optionsForm.appendChild(document.createElement('br'));
     });
     optionsForm.onsubmit = (e) => {
         e.preventDefault();

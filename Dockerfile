@@ -6,15 +6,12 @@ RUN a2enmod rewrite
 
 
 
-# Copy only backend code and database
-COPY backend/api.php /var/www/html/api.php
-COPY database /var/www/html/database
-
+# Copy everything into Apache document root
+COPY . /var/www/html/
 
 
 # Ensure permissions for database
-RUN mkdir -p /var/www/html/database \
-    && chown -R www-data:www-data /var/www/html/database
+RUN chown -R www-data:www-data /var/www/html/database
 
 # Expose port 80
 EXPOSE 80
