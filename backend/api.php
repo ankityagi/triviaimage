@@ -91,7 +91,7 @@ if ($endpoint === 'save_user') {
 if ($endpoint === 'scores') {
     error_log('API: Received request for scores endpoint');
     try {
-        $stmt = $db->query('SELECT scores.datetime, users.name, scores.score, scores.total_time FROM scores LEFT JOIN users ON scores.user_id = users.id ORDER BY scores.id DESC');
+        $stmt = $db->query('SELECT scores.datetime, users.name, scores.score, scores.total_time FROM scores LEFT JOIN users ON scores.user_id = users.id ORDER BY scores.score DESC, scores.id DESC');
         $scores = $stmt->fetchAll(PDO::FETCH_ASSOC);
         error_log('API: Fetched ' . count($scores) . ' scores from DB');
         header('Content-Type: application/json');
