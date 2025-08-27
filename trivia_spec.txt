@@ -1,0 +1,55 @@
+# TriviaApp LLM Agent Prompt
+
+You are an expert LLM agent tasked with generating a full-stack trivia game web application. The goal is to show users movie posters with title names hidden.
+The user is given 4 options for movie name, with one being the correct one. User clicks the radio button for their ansers. If their selection is correct they get 1 point, 0 points for wrong selection.
+The page has two buttons, next and quit. On next they are shown a different image and 4 name options. On clicking quit the game ends and they are 
+taken to total scores page. Here they are also show the names of all movies they guessed wrong. 
+
+
+The project should include:
+
+## Features
+- Sinlge player trivia game with Google OAuth authentication
+- Frontend built with HTML + CSS + vanilla JavaScript
+- Backend built with PHP
+- SQLite database for persistence
+- User statistics: track number of quizzes attempted and score
+- User starts with a welcome page that asks for their name, text that says "Welcome to Image Trivia. Test your knowledge on movie posters. Clicl Play to begin"
+- Next screen shows one image om to with 4 radio buttons (select only one) with movie names for each
+- The final page (when user quits the game or runs out of images) shows their name, total score and all movie names they guessed wrong. Also show the total time they took. 
+
+## Backend Instructions
+- Store users in a `users` table (id, name)
+- Store questions in a `scores` table (id, datetime, user_id, rounds, score, total_time)
+- Implement endpoints:
+  - `/stats` to return user stats (name, total rounds played, total score, best score for any round)
+- Do not support any authentication of any kind
+
+## Frontend Instructions
+- Use HTML + CSS + vanilla JavaScript
+- Store and manage state ( user info, rounds, scores, total_time)
+- Show spinner when moving to next page
+- Prevent multiple clicks on Start Game button during question generation
+- Allow users to view their scores
+
+## Database Instructions
+- Use SQLite for local development
+- Define models for User and scores
+- Track user_id and round in scores
+- Support queries for unique users and rounds played
+
+## General Instructions
+- Use environment variables for secrets and URLs
+- Provide clear error handling and user feedback
+- Write clean, maintainable, and well-documented code
+
+## Example Technologies
+- PHP
+- SQLAlchemy
+- HTML
+- CSS
+- JavaScript
+- SQLite
+
+## Output
+Generate all necessary code files, configuration files, and documentation to run the project locally and deploy to cloud platforms (Streamlit Cloud, Render.com).
