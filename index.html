@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TriviaImage Game</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    <div id="welcome-screen" class="retro-container retro-bg">
+        <h1 class="retro-title">🎬 Welcome to Image Trivia!</h1>
+        <p class="text-center text-lg font-mono text-blue-900 mb-2">Are you a true movie buff? Prove it by guessing iconic movie posters!</p>
+        <p class="text-center text-pink-700 font-bold mb-4">From classics to blockbusters, challenge your film knowledge and climb the leaderboard!</p>
+        <input type="text" id="username" placeholder="Enter your name" class="block mx-auto mb-4 px-4 py-2 rounded-lg border-2 border-blue-400 font-mono text-center focus:outline-none focus:ring-2 focus:ring-pink-500">
+        <button id="play-btn" class="retro-btn w-full">Play</button>
+        <div class="mt-6 text-center text-yellow-700 font-mono text-sm">Tip: Use your movie memory and spot the details!</div>
+    </div>
+    <div id="game-screen" style="display:none;" class="retro-container retro-bg">
+        <div id="game-header" class="flex justify-between items-center mb-4 px-2 py-2 bg-yellow-100 rounded-lg shadow font-mono text-lg">
+            <span id="current-score">Score: 0</span>
+            <span id="quiz-progress">Quiz: 0/5</span>
+            <span id="timer" class="ml-4">Time: 0s</span>
+        </div>
+        <div id="image-container">
+            <img src="MI.jpg" alt="Sample Movie Poster" class="retro-image">
+        </div>
+        <div class="retro-question text-center mb-2">Which movie is this poster from?</div>
+        <form id="options-form" class="retro-options"></form>
+        <div class="flex justify-between mt-4">
+            <button id="next-btn" class="retro-btn">Next</button>
+            <button id="quit-btn" class="retro-btn">Quit</button>
+        </div>
+        <div id="spinner" style="display:none;" class="retro-result text-center">Loading...</div>
+        <div class="mt-6 text-center text-blue-900 font-mono text-sm">Fun Fact: Did you know? Movie posters often hide Easter eggs for fans!</div>
+    </div>
+    <div id="score-screen" style="display:none;" class="retro-container retro-bg text-center">
+                <h2 class="retro-title">🏆 Your Movie Score</h2>
+                <div id="score-value" class="retro-result"></div>
+                <div class="mt-4 text-pink-700 font-mono">Share your score and challenge your friends to beat your movie knowledge!</div>
+                <h3 class="text-2xl font-bold text-blue-900 mt-8 mb-4">Leaderboard</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full border border-blue-400 rounded-lg shadow-lg bg-white">
+                        <thead class="bg-pink-200">
+                            <tr>
+                                <th class="px-4 py-2 text-left font-mono text-pink-700">Name</th>
+                                <th class="px-4 py-2 text-left font-mono text-pink-700">Session Date</th>
+                                <th class="px-4 py-2 text-left font-mono text-pink-700">Total Score</th>
+                                <th class="px-4 py-2 text-left font-mono text-pink-700">Total Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboard-body">
+                            <!-- Leaderboard rows will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+                <button id="restart-btn" class="retro-btn mt-6">Play Again</button>
+    </div>
+<!-- For local development -->
+<!-- <script>window.BACKEND_API_BASE = 'http://localhost:8000/backend/api.php';</script> -->
+<!-- For production -->
+<script>window.BACKEND_API_BASE = 'http://localhost:8080/backend/api.php';</script>
+<script src="script.js"></script>
+</body>
+</html>
