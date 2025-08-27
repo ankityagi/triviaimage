@@ -4,7 +4,7 @@ import random
 import re
 
 DB_PATH = '../database/triviaimage.db'
-POSTERS_DIR = '../frontend/posters_blurred_east'
+POSTERS_DIR = '../posters_blurred_east'
 
 # Helper to extract movie title from filename
 # Example: '01_The_Godfather_blurred.jpg' -> 'The Godfather'
